@@ -23,8 +23,9 @@ void UInventory::NativeConstruct()
     }
 }
 
-void UInventory::InitializeGrid(int32 Rows, int32 Columns, AMyProject2Character* InPlayer)
+void UInventory::InitializeGrid(int32 Rows, int32 InColumns, AMyProject2Character* InPlayer)
 {
+    this->Columns = InColumns;
     Player = InPlayer;
 
     if (!ItemGrid)

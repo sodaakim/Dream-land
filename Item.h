@@ -33,4 +33,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Item")
     FItemData ItemData;
 
+	void SetItemData(const FItemData& NewItemData);
+
 };

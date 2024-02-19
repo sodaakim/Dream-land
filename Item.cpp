@@ -3,11 +3,13 @@
 #include "Components/BoxComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/WidgetComponent.h"
+#include "ItemData.h"
 #include "NameTagC.h"
 
 AItem::AItem()
 {
 	PrimaryActorTick.bCanEverTick = true;
+    ItemData.ItemID = FGuid::NewGuid();
 
 	TriggerVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerVolume"));
     RootComponent = TriggerVolume;
@@ -43,3 +45,22 @@ void AItem::Tick(float DeltaTime)
 
 }
 
+void AItem::SetItemData(const FItemData& NewItemData)
+{
+    ItemData = NewItemData;
+    ItemName = NewItemData.Name; 
+    
+    UWidgetComponent* WidgetComp = FindComponentByClass<UWidgetComponent>();
+    if (WidgetComp)
+    {
+        UUserWidget* Widget = Cast<UUserWidget>(WidgetComp->GetUserWidgetObject());
+        if (Widget)
+        {
+            UNameTagC* NameTagWidget = Cast<UNameTagC>(Widget);
+            if (NameTagWidget)
+            {
+                NameTagWidget->SetNameText(ItemName);
+            }
+        }
+    }
+}

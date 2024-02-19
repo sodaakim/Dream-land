@@ -6,7 +6,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
-#include "Blueprint/UserWidget.h"
+#include "Item.h"
 #include "EnhancedInputSubsystems.h"
 
 
@@ -102,6 +102,9 @@ void AMyProject2Character::SetupPlayerInputComponent(class UInputComponent* Play
 
 	//Press I
 	PlayerInputComponent->BindAction("OpenInventory", IE_Pressed, this, &AMyProject2Character::OpenInventory);
+
+	//Press P
+	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &AMyProject2Character::PickupItem);
 }
 
 void AMyProject2Character::OnZoomIn()
@@ -129,6 +132,27 @@ void AMyProject2Character::OnInteract()
         InteractComponent->Interact();
     }
 }
+
+void AMyProject2Character::PickupItem()
+{
+    TArray<AActor*> OverlappingItems;
+    GetCapsuleComponent()->GetOverlappingActors(OverlappingItems, AItem::StaticClass());
+
+    for (AActor* ItemActor : OverlappingItems)
+    {
+        AItem* Item = Cast<AItem>(ItemActor);
+        if (Item)
+        {
+            // 아이템을 인벤토리에 추가
+            AddItemToInventory(Item->ItemData);
+
+            // 아이템을 게임 월드에서 제거
+            Item->Destroy();
+        }
+    }
+}
+
+
 
 void AMyProject2Character::Move(const FInputActionValue& Value)
 {
@@ -208,3 +232,59 @@ void AMyProject2Character::CloseInventory()
 	}
 }
 
+
+void AMyProject2Character::AddItemToInventory(const FItemData& ItemToAdd)
+{
+    bool bItemAlreadyInInventory = false;
+
+    // 인벤토리 내 동일한 아이템 검색
+    for (FItemData& InventoryItem : InventoryItems)
+    {
+        if (InventoryItem.Name == ItemToAdd.Name)
+        {
+            // 이미 존재하는 아이템이므로 수량을 증가시킴
+            InventoryItem.Count += ItemToAdd.Count;
+            bItemAlreadyInInventory = true;
+            break;
+        }
+    }
+
+    // 인벤토리에 동일한 아이템이 없는 경우, 새로 추가
+    if (!bItemAlreadyInInventory)
+    {
+        InventoryItems.Add(ItemToAdd);
+    }
+
+    // 인벤토리 UI 업데이트
+    if (InventoryWidget)
+    {
+        InventoryWidget->UpdateInventoryUI();
+    }
+}
+
+
+void AMyProject2Character::RemoveItemFromInventory(const FGuid& ItemID)
+{
+
+	for (FItemData& Item : InventoryItems)
+    {
+        if (Item.ItemID == ItemID)
+        {
+            // 수량이 1 이상이면 감소시키고, 그렇지 않다면 제거한다.
+            if (Item.Count > 1)
+            {
+                Item.Count -= 1;
+            }
+            else
+            {
+                InventoryItems.RemoveSingle(Item); // 단일 아이템 제거
+            }
+            if (InventoryWidget)
+            {
+                InventoryWidget->UpdateInventoryUI();
+            }
+            break; // 아이템을 찾았으므로 루프를 종료한다.
+        }
+    }
+
+}

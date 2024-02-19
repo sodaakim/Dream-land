@@ -25,7 +25,7 @@ protected:
 	
 public:
     UFUNCTION(BlueprintCallable)
-    void InitializeGrid(int32 Rows, int32 Columns, AMyProject2Character* InPlayer);
+    void InitializeGrid(int32 Rows, int32 InColumns, AMyProject2Character* InPlayer);
 
     UFUNCTION(BlueprintCallable)
     void CloseWidget();
@@ -35,6 +35,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
 	void UpdateInventoryUI();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Inventory")
+    int32 Columns;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
     UTextBlock* CoinText;	

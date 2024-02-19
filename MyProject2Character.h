@@ -65,9 +65,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
     int32 Coins = 200;
 
-	void OpenInventory();
+	void OpenInventory(); //Press I
 	void UpdateCoinDisplay();
 	void CloseInventory();
+
+	void RemoveItemFromInventory(const FGuid& ItemID);
+	void AddItemToInventory(const FItemData& ItemToAdd);
 
 protected:
 
@@ -75,6 +78,8 @@ protected:
     void OnZoomOut();
 
 	void OnInteract(); //Press E
+
+	void PickupItem(); //Press P
 
 
 	/** Called for movement input */
