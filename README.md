@@ -8,7 +8,7 @@
 #
 지형과 지역, 캐릭터, 이벤트
 
-![Uploading image.png…]()
+![image](https://github.com/sodaakim/Dream-land/assets/83997634/c0292dd8-ab4e-42bb-b4a6-36952abe77ad)
 
 - 지역은 기본적으로 넓은 초원이 펼쳐진 아늑한 환경에서, 여러가지 지역으로 구분된 맵으로 구성한다.
 - 초원에는 기본 마을이 존재한다.
