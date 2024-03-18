@@ -1,5 +1,7 @@
 # 구현 목표 및 진행도
 
+![image](https://github.com/sodaakim/Dream-land/assets/83997634/ebf89636-9f42-489e-90df-62bffeb46e49)
+
 - 본 프로젝트는 언리얼 엔진을 활용하여 작은 RPG시스템을 구축하는 것을 목표로 진행하고 있습니다.
 - 모든 로직을 c++로 구현을 목표로 하고 있습니다.
 
