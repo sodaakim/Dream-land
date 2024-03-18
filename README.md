@@ -7,6 +7,7 @@
 
 #
 지형과 지역, 캐릭터, 이벤트
+
 ![Uploading image.png…]()
 
 - 지역은 기본적으로 넓은 초원이 펼쳐진 아늑한 환경에서, 여러가지 지역으로 구분된 맵으로 구성한다.
@@ -19,6 +20,7 @@
 
 #
 npc와의 대화 로직 제작
+
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/e1b81f22-1bb4-4b5a-9105-1ce0b60b3f03)
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/98fc6802-61db-4d25-b226-1bd7c9fca6d3)
 
@@ -29,6 +31,7 @@ npc와의 대화 로직 제작
 
 #
 퀘스트 시스템 제작
+
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/90d75460-93ce-4aca-a8b3-3e4fc02dfd18)
 
 - 퀘스트 종류에는 메인 퀘스트와 서브 퀘스트, 이벤트 퀘스트가 존재한다.
@@ -37,6 +40,7 @@ npc와의 대화 로직 제작
 
 #
 아이템 시스템 제작
+
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/8142400e-8e21-4b86-9e46-6f75aad1144e)
 
 - 아이템 구조체가 존재하고, 월드에 존재하는 아이템을 관리하는 시스템이 존재한다.
@@ -46,6 +50,7 @@ npc와의 대화 로직 제작
 
 #
 npc와의 상점 시스템 제작
+
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/72567fae-7912-4137-ad54-97d7f939d863)
 
 - npc는 각기 다른 아이템을 판매한다.
@@ -54,6 +59,7 @@ npc와의 상점 시스템 제작
 
 #
 인벤토리 시스템 제작
+
 - 5*5칸의 기본 인벤토리가 제공되고, 인벤토리에는 한칸에 한개의 물품을 넣을 수 있다.
 - 가능하다면 여러 칸에 여러 크기의 물픔을 배치할 수 있도록 시스템을 확장하고 싶다.
 - 인벤토리는 같은 아이템의 경우 스택되어 저장되고, 아이템이 추가되거나 버려지면 인벤토리를 업데이트한다.
@@ -62,6 +68,7 @@ npc와의 상점 시스템 제작
 
 #
 사냥 시스템 제작
+
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/580a9fff-d5ed-4b73-b872-6a2228d9511f)
 
 - 동물들은 자유롭게 움직이고 있다.
