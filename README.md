@@ -1,4 +1,4 @@
-![image](https://github.com/sodaakim/Dream-land/assets/83997634/438bd338-0407-4c5b-bb5b-a8bb5e8339b2)# 구현 목표 및 진행도
+# Dream Land (Unreal Project)
 
 ![image](https://github.com/sodaakim/Dream-land/assets/83997634/ebf89636-9f42-489e-90df-62bffeb46e49)
 
